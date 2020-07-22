@@ -4,3 +4,6 @@ _api.pyc
 
 # Ignore .swp files.
 *.swp
+
+# Ignore the generated history file.
+history.txt

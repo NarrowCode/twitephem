@@ -1,6 +1,7 @@
 # Twitephem 
 import twitter
 import json
+import time
 from _api import api_key, api_secret, acc_token, acc_secret
 
 version = "1.0"
@@ -25,7 +26,7 @@ if api:
             print(i, status.id, status.created_at_in_seconds)
             if (sel == "dh"):
                 outf.write("{s_id};{s_t};{s_txt}\n".format(s_id = status.id,
-                           s_t = status.created_at_in_seconds, 
+                           s_t = time.asctime(status.created_at_in_seconds), 
                            s_txt = status.text.encode("utf-8")))
             i += 1
 else:

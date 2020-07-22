@@ -1,0 +1,5 @@
+# Ignore the API file.
+_api.txt
+
+# Ignore .swp files.
+*.swp

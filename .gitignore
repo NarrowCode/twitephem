@@ -1,5 +1,6 @@
 # Ignore the API file.
-_api.txt
+_api.py
+_api.pyc
 
 # Ignore .swp files.
 *.swp

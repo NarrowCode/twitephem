@@ -14,16 +14,17 @@ I am not responsible for broken Twitter accounts :)
 Place your own Twitter API key in the api.py file and rename it to \_api.py 
 Make sure to keep the file in the .gitignore and manage the permissions properly.
     
-Normal start:\
+### Normal start:
 
     python twitephem.py
 
-Silent start:\
+### Silent start:
 This is mostly for automatic execution on a fixed schedule, to generate a truly ephemeral Twitter experience.
 
     python twitephem.py --silent -dh -b <DD-MM-YYYY> -e <DD-MM-YYYY>
 
-A list of all command line arguments is printed on calling:\
+### Help:
+A list of all possible arguments can be viewed by calling:
 
     python twitephem.py -h
 

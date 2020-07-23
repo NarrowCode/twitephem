@@ -59,7 +59,7 @@ def main(argv):
     if api:
         cprint("Authentication successful.")
         cprint("Options: d       - Delete tweets")
-        cprint("         dh      - Delete tweets & save history")
+        cprint("         a       - Delete tweets & archive history")
         cprint("         v       - View tweets")
         sel = "v"
         if not silent:
@@ -118,6 +118,7 @@ def main(argv):
                         if (not latest_id == status.id):
                             latest_id = status.id
                         elif len(statuses) == 1:
+                            print("Finished. {0} tweets deleted.".format(deleted))
                             sys.exit()
                         if (creat_dattim_obj >= start_date_obj and creat_dattim_obj < end_date_obj): 
                             if (sel == "d" or sel == "a"): 

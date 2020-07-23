@@ -21,7 +21,18 @@ Make sure to keep the file in the .gitignore and manage the permissions properly
 ### Silent start:
 This is mostly for automatic execution on a fixed schedule, to generate a truly ephemeral Twitter experience.
 
-    python twitephem.py --silent -dh -b <DD-MM-YYYY> -e <DD-MM-YYYY>
+    python twitephem.py --silent -a -b <DD-MM-YYYY> -e <DD-MM-YYYY>
+
+To make proper use out of this, I've included a shell script where you can specify the longevity of your tweets by specifying how many years, weeks, days should be kept untouched.
+
+    # Delete everything but the last 2 weeks.
+    ./autoTwitEphem.sh -w 2    
+    # Delete everything but the last year.
+    ./autoTwitEphem.sh -y 1
+    # Delete everything but the last year and 3 weeks and 5 days.
+    ./autoTwitEphem.sh -y 1 -w 3 -d 5
+
+I recommend piping the output to a logfile, so you can refer to it later. The script will always use the **archive** option, so it will automatically create a history file and delete afterwards. You can change that behaviour by editing the script.
 
 ### Help:
 A list of all possible arguments can be viewed by calling:

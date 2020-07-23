@@ -7,3 +7,6 @@ _api.pyc
 
 # Ignore the generated history files.
 history*.txt
+
+# Ignore output generated the sh script.
+out.txt

@@ -111,18 +111,21 @@ def main(argv):
                 latest_id = "" 
                 i = 1
                 deleted = 0
-                while len(statuses) > 1:
+                while len(statuses) >= 1:
                     for status in statuses:
                         creat_dattim = datetime.fromtimestamp(status.created_at_in_seconds).strftime(DATE_FORMAT)
                         creat_dattim_obj = datetime.strptime(creat_dattim, DATE_FORMAT)
-                        latest_id = status.id
+                        if (not latest_id == status.id):
+                            latest_id = status.id
+                        elif len(statuses) == 1:
+                            sys.exit()
                         if (creat_dattim_obj >= start_date_obj and creat_dattim_obj < end_date_obj): 
                             if (sel == "d" or sel == "a"): 
                                 if (sel == "a"):
                                     outf.write("{s_id};{s_t};{s_txt}\n".format(s_id = status.id,
                                     s_t = time.asctime(time.gmtime(status.created_at_in_seconds)), 
                                     s_txt = status.text.encode("utf-8")))
-                                    
+
                                 print("{0}, {1}, {2}, {3}".format(i, status.id, creat_dattim, "destroy=YES"))
                                 api.DestroyStatus(latest_id)
                                 deleted += 1
